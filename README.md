@@ -77,4 +77,10 @@ The client periodically pulls (or the server pushes) new versions; your view ref
 With command `DISCONNECT` to disconnect client with server.
 After all clients are disconnected, enter `QUIT` in Server side to quit the server.
 or just close the client process (Ctrl+C).
+
+## COMMANDS
+
+### Client side:
+
+### Server side:
  
