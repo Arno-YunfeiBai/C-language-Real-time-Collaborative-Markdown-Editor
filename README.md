@@ -1,11 +1,11 @@
 # Real-time-Collaborative-Markdown-Editor
 This is a multi-user collaborative document editor — a command-line, slimmed-down Google Docs.
 
-**Description**
+## Description
 
 I built a multi-user collaborative document editor — a command-line, slimmed-down Google Docs. The server stores the document and queues each client operation (insert, delete, bold, etc.), then broadcasts the results so everyone stays in sync. Documents are saved as plain text in a simplified Markdown-like format.
 
-**Details**
+## Details
  ·Designed and shipped a fully-functioning client-server architecture in pure C: the server
  spawns spawns one POSIX thread per client plus a broadcast thread, enabling dozens of
  users to edit the same document concurrently without blocking.
@@ -34,7 +34,7 @@ I built a multi-user collaborative document editor — a command-line, slimmed-d
  ·Hard-ned memory-safe, race-free implementation: all shared structures are protected with
  mutexes; custom alloc/free paths eliminate leaks detected by sanitizers. server_helpers
  
- **Technologies & concepts used**
+ ## Technologies & concepts used
  
  ·C11/POSIX APIs: pthread, realtime signal(7), mkfifo, nanosleep, sigaction.
  ·Concurrent programming: per-client queues, mutex-guarded critical sections,
@@ -42,44 +42,39 @@ role-based authorisation, detailed error codes.
  ·Logging & observability: thread-safe in-memory log linked list with runtime
  inspection commands.
 
- **How to use it?**
+ ## How to use it?
  
  How to Use (Quick 6 Steps)
-Build
+1. Build
 
-bash
-Copy
-Edit
-make    # Produces ./server and ./client
-Start the server
+'make'    # Produces ./server and ./client
 
-bash
-Copy
-Edit
-./server doc.txt [--fifo <name> | --port <port> | other opts...]
-Start a client
+2. Start the server
 
-bash
-Copy
-Edit
-./client <username> [matching server options...]
-Enter edit commands, e.g.
+'./server doc.txt <TIME_INTERVAL>'
+Then you the server pid will be shown on the screen.
 
-text
-Copy
-Edit
-INSERT <pos> "<text>"
+3. Start a client
+
+Use the pid just shown and enter:
+'./client <server_pid> <username>'
+
+4. Start more client(optional)
+
+5. Enter edit commands in the client side, e.g.
+
+'INSERT <pos> <text>
 DEL <start> <len>
-BOLD <start> <len>
-HELP | SAVE | QUIT ...
-Stay in sync
+BOLD <start> <END>
+LOG?
+DOC?'
+
+6. Stay in sync
 The client periodically pulls (or the server pushes) new versions; your view refreshes so everyone sees the same state.
 
-Exit
+7. Exit
 
-text
-Copy
-Edit
-QUIT
+With command 'DISCONNECT' to disconnect client with server.
+After all clients are disconnected, enter 'QUIT' in Server side to quit the server.
 or just close the client process (Ctrl+C).
  
