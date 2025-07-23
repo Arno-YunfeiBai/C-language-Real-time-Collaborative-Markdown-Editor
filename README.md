@@ -41,4 +41,42 @@ role-based authorisation, detailed error codes.
  inspection commands.
 \n
  **How to use it?**\n
+ How to Use (Quick 6 Steps)
+Build
+
+bash
+Copy
+Edit
+make    # Produces ./server and ./client
+Start the server
+
+bash
+Copy
+Edit
+./server doc.txt [--fifo <name> | --port <port> | other opts...]
+Start a client
+
+bash
+Copy
+Edit
+./client <username> [matching server options...]
+Enter edit commands, e.g.
+
+text
+Copy
+Edit
+INSERT <pos> "<text>"
+DEL <start> <len>
+BOLD <start> <len>
+HELP | SAVE | QUIT ...
+Stay in sync
+The client periodically pulls (or the server pushes) new versions; your view refreshes so everyone sees the same state.
+
+Exit
+
+text
+Copy
+Edit
+QUIT
+or just close the client process (Ctrl+C).
  
