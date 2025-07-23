@@ -81,6 +81,62 @@ or just close the client process (Ctrl+C).
 ## COMMANDS
 
 ### Client side:
+**INSERT** `<pos>` `<content>`
+Inserts the given text at the specified cursor position (no newlines allowed).
+
+**DEL** `<pos>` `<del_len>`
+Deletes the specified number of characters starting at the given position.
+
+**NEWLINE** `<pos>`
+Inserts a newline character at the specified position.
+
+**HEADING** `<level>` `<pos>`
+Inserts a heading of the given level (1–3) at the specified position.
+
+**BOLD** `<pos_start>` `<pos_end>`
+Applies bold formatting to the text between the specified positions.
+
+**ITALIC** `<pos_start>` `<pos_end>`
+Applies italic formatting to the text between the specified positions.
+
+**BLOCKQUOTE** `<pos>`
+Inserts blockquote formatting at the specified position.
+
+**ORDERED_LIST** `<pos>`
+Inserts an ordered list item at the specified position and renumbers existing items.
+
+**UNORDERED_LIST** `<pos>`
+Inserts an unordered list item at the specified position.
+
+**CODE** `<pos_start>` `<pos_end>`
+Applies inline code formatting to the text between the specified positions.
+
+**HORIZONTAL_RULE** `<pos>`
+Inserts a horizontal rule followed by a newline at the specified position.
+
+**LINK** `<pos_start>` `<pos_end>` `<link>`
+Converts the text between positions into a Markdown hyperlink [text](link).
+
+**DISCONNECT**
+Disconnects the client and cleans up the associated FIFOs.
+
+**DOC?**
+Prints the entire current document to the server terminal.
+
+**LOG?**
+Outputs the log of all executed commands, grouped by version.
+
+**PERM?**
+Requests and displays the client’s role/permission (read or write).
 
 ### Server side:
+
+**DOC?**
+Prints the entire current document to the server terminal.
+
+**LOG?**
+Outputs the log of all executed commands, grouped by version.
+
+**QUIT**
+Shuts down the server if no clients are connected, otherwise rejects with a message.
  
