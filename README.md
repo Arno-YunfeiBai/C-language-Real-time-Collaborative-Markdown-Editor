@@ -47,34 +47,34 @@ role-based authorisation, detailed error codes.
  How to Use (Quick 6 Steps)
 1. Build
 
-'make'    # Produces ./server and ./client
+`make    # Produces ./server and ./client`
 
 2. Start the server
 
-'./server doc.txt <TIME_INTERVAL>'
+`./server doc.txt <TIME_INTERVAL>`
 Then you the server pid will be shown on the screen.
 
 3. Start a client
 
 Use the pid just shown and enter:
-'./client <server_pid> <username>'
+`./client <server_pid> <username>`
 
-4. Start more client(optional)
+4. Start and connect more clients(optional)
 
 5. Enter edit commands in the client side, e.g.
 
-'INSERT <pos> <text>
+`INSERT <pos> <text>
 DEL <start> <len>
 BOLD <start> <END>
 LOG?
-DOC?'
+DOC?`
 
 6. Stay in sync
 The client periodically pulls (or the server pushes) new versions; your view refreshes so everyone sees the same state.
 
 7. Exit
 
-With command 'DISCONNECT' to disconnect client with server.
-After all clients are disconnected, enter 'QUIT' in Server side to quit the server.
+With command `DISCONNECT` to disconnect client with server.
+After all clients are disconnected, enter `QUIT` in Server side to quit the server.
 or just close the client process (Ctrl+C).
  
