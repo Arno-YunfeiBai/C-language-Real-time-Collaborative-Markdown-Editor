@@ -43,7 +43,7 @@ role-based authorisation, detailed error codes.
  inspection commands.
 
 ## Project structure
-
+```
 .
 ├── Makefile
 ├── roles.txt
@@ -61,7 +61,7 @@ role-based authorisation, detailed error codes.
 │   ├── client_helpers.h
 │   └── log.h
 └── README.md
-
+```
 
  ## How to use it?
 
