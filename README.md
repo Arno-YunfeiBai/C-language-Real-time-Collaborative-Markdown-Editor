@@ -1,11 +1,11 @@
 # C language Real-time-Collaborative-Markdown-Editor
 This is a multi-user collaborative document editor — a command-line, slimmed-down Google Docs.
 
-## Description
+## 1. Description
 
 I built a multi-user collaborative document editor — a command-line, slimmed-down Google Docs. The server stores the document and queues each client operation (insert, delete, bold, etc.), then broadcasts the results so everyone stays in sync. Documents are saved as plain text in a simplified Markdown-like format.
 
-## Features
+## 2. Features
  ·Designed and shipped a fully-functioning client-server architecture in pure C: the server
  spawns spawns one POSIX thread per client plus a broadcast thread, enabling dozens of
  users to edit the same document concurrently without blocking.
@@ -34,7 +34,7 @@ I built a multi-user collaborative document editor — a command-line, slimmed-d
  ·Hard-ned memory-safe, race-free implementation: all shared structures are protected with
  mutexes; custom alloc/free paths eliminate leaks detected by sanitizers. server_helpers
  
- ## Technologies & concepts used
+ ## 3. Technologies & concepts used
  
  ·C11/POSIX APIs: pthread, realtime signal(7), mkfifo, nanosleep, sigaction.
  ·Concurrent programming: per-client queues, mutex-guarded critical sections,
@@ -42,7 +42,7 @@ role-based authorisation, detailed error codes.
  ·Logging & observability: thread-safe in-memory log linked list with runtime
  inspection commands.
 
-## Project structure
+## 4. Project structure
 ```
 .
 ├── Makefile
@@ -63,7 +63,7 @@ role-based authorisation, detailed error codes.
 └── README.md
 ```
 
- ## How to use it?
+ ## 5. How to use it?
 
  How to Use (Quick 6 Steps)
 1. Build
@@ -99,7 +99,7 @@ With command `DISCONNECT` to disconnect client with server.
 After all clients are disconnected, enter `QUIT` in Server side to quit the server.
 or just close the client process (Ctrl+C).
 
-## COMMANDS
+## 6. COMMANDS
 
 ### Client side:
 **INSERT** `<pos>` `<content>`
@@ -160,4 +160,14 @@ Outputs the log of all executed commands, grouped by version.
 
 **QUIT**
 Shuts down the server if no clients are connected, otherwise rejects with a message.
- 
+
+ ## 7. License
+MIT – do anything, but give credit.
+
+---
+
+### 8. Author
+
+**Yunfei Bai* – Advanced Computing student @ The University of Sydney  
+*Solo development, April – May 2024*
+
