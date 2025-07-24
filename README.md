@@ -5,7 +5,7 @@ This is a multi-user collaborative document editor — a command-line, slimmed-d
 
 I built a multi-user collaborative document editor — a command-line, slimmed-down Google Docs. The server stores the document and queues each client operation (insert, delete, bold, etc.), then broadcasts the results so everyone stays in sync. Documents are saved as plain text in a simplified Markdown-like format.
 
-## Details
+## Features
  ·Designed and shipped a fully-functioning client-server architecture in pure C: the server
  spawns spawns one POSIX thread per client plus a broadcast thread, enabling dozens of
  users to edit the same document concurrently without blocking.
@@ -42,8 +42,29 @@ role-based authorisation, detailed error codes.
  ·Logging & observability: thread-safe in-memory log linked list with runtime
  inspection commands.
 
+## Project structure
+
+.
+├── Makefile
+├── roles.txt
+├── src/
+│   ├── server.c
+│   ├── client.c
+│   ├── server_helpers.c
+│   ├── client_helpers.c
+│   ├── markdown.c
+│   └── log.c
+├── libs/
+│   ├── document.h
+│   ├── markdown.h
+│   ├── server_helpers.h
+│   ├── client_helpers.h
+│   └── log.h
+└── README.md
+
+
  ## How to use it?
- 
+
  How to Use (Quick 6 Steps)
 1. Build
 
